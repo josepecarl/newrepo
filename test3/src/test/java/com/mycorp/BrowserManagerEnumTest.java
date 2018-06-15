@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.EdgeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 import io.github.bonigarcia.wdm.VoidDriverManager;
 
 
@@ -56,6 +57,15 @@ public class BrowserManagerEnumTest {
         BrowserManagerEnum of = BrowserManagerEnum.of( "edge" );
         Assert.assertEquals( BrowserManagerEnum.EDGE, of );
         Assert.assertTrue( of.getBrowserManager() instanceof EdgeDriverManager );
+       // Assert.assertTrue( of.getBrowserManager( of.getBrowserManager().getDownloadedVersion() ) instanceof FirefoxDriverManager );
+        Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
+    }
+    
+    @Test 
+    public void shouldCheckOfIE() throws Exception {
+        BrowserManagerEnum of = BrowserManagerEnum.of( "ie" );
+        Assert.assertEquals( BrowserManagerEnum.IE, of );
+        Assert.assertTrue( of.getBrowserManager() instanceof InternetExplorerDriverManager );
        // Assert.assertTrue( of.getBrowserManager( of.getBrowserManager().getDownloadedVersion() ) instanceof FirefoxDriverManager );
         Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
     }
