@@ -27,7 +27,7 @@ public class BrowserManagerEnumTest {
         Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
     }
 
-    @Test @Ignore
+    @Test 
     public void shouldCheckOfChrome() throws Exception {
         BrowserManagerEnum of = BrowserManagerEnum.of( "test" );
         Assert.assertEquals( BrowserManagerEnum.NONE, of );

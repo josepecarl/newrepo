@@ -1,5 +1,6 @@
 package com.mycorp;
 
+
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -73,7 +74,9 @@ public enum BrowserManagerEnum {
 
     public WebDriver getDriver() {
         switch( this ) {
-        case CHROME:     return new ChromeDriver();
+        case CHROME:     
+        				 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        				 return new ChromeDriver();
         case FIREFOX:    return new FirefoxDriver();
         case EDGE:       return new EdgeDriver();
         case IE:         return new InternetExplorerDriver();
