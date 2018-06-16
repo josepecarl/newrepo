@@ -9,6 +9,8 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.EdgeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
+import io.github.bonigarcia.wdm.OperaDriverManager;
+import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import io.github.bonigarcia.wdm.VoidDriverManager;
 
 
@@ -66,6 +68,33 @@ public class BrowserManagerEnumTest {
         BrowserManagerEnum of = BrowserManagerEnum.of( "ie" );
         Assert.assertEquals( BrowserManagerEnum.IE, of );
         Assert.assertTrue( of.getBrowserManager() instanceof InternetExplorerDriverManager );
+       // Assert.assertTrue( of.getBrowserManager( of.getBrowserManager().getDownloadedVersion() ) instanceof FirefoxDriverManager );
+        Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
+    }
+    
+    @Test 
+    public void shouldCheckOfMarionette() throws Exception {
+        BrowserManagerEnum of = BrowserManagerEnum.of( "marionette" );
+        Assert.assertEquals( BrowserManagerEnum.MARIONETTE, of );
+        Assert.assertTrue( of.getBrowserManager() instanceof FirefoxDriverManager );
+       // Assert.assertTrue( of.getBrowserManager( of.getBrowserManager().getDownloadedVersion() ) instanceof FirefoxDriverManager );
+        Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
+    }
+    
+    @Test 
+    public void shouldCheckOfPhanton() throws Exception {
+        BrowserManagerEnum of = BrowserManagerEnum.of( "phantomjs" );
+        Assert.assertEquals( BrowserManagerEnum. PHANTOMJS, of );
+        Assert.assertTrue( of.getBrowserManager() instanceof PhantomJsDriverManager );
+       // Assert.assertTrue( of.getBrowserManager( of.getBrowserManager().getDownloadedVersion() ) instanceof FirefoxDriverManager );
+        Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
+    }
+
+    @Test 
+    public void shouldCheckOfOpera() throws Exception {
+        BrowserManagerEnum of = BrowserManagerEnum.of( "opera" );
+        Assert.assertEquals( BrowserManagerEnum.OPERA, of );
+        Assert.assertTrue( of.getBrowserManager() instanceof OperaDriverManager );
        // Assert.assertTrue( of.getBrowserManager( of.getBrowserManager().getDownloadedVersion() ) instanceof FirefoxDriverManager );
         Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
     }
