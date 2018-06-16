@@ -3,6 +3,8 @@ package com.mycorp;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.Mockito;
+import org.openqa.selenium.remote.Command;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
@@ -27,10 +29,16 @@ public class BrowserManagerEnumTest {
         Assert.assertEquals( BrowserManagerEnum.NONE, of );
         of = BrowserManagerEnum.of( null );
         Assert.assertEquals( BrowserManagerEnum.NONE, of );
+        
         Assert.assertTrue( of.getBrowserManager() instanceof VoidDriverManager );
         Assert.assertTrue( of.getBrowserManager( "1" ) instanceof VoidDriverManager );
         Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
+        
+        ((RemoteWebDriver) of.getDriver()).get("http://tarunlalwani.com");
+        
     }
+    
+    
 
     @Test 
     public void shouldCheckOfChrome() throws Exception {

@@ -14,6 +14,7 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.DriverCommand;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.Response;
 import io.github.bonigarcia.wdm.BrowserManager;
@@ -106,8 +107,12 @@ public enum BrowserManagerEnum {
 				 * @see RemoteWebDriver#execute(String, Map)
 				 */
 				@Override
-				protected Response execute(final String driverCommand, final Map<String, ?> parameters) {
-					return new Response();
+				public Response execute(final String driverCommand, final Map<String, ?> parameters) {
+					Response response = null;
+					if (driverCommand.equalsIgnoreCase(DriverCommand.GET)) {
+						response = new Response();
+					}
+					return response;
 				}
 
 				/**
