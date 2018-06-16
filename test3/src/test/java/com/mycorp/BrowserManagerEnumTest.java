@@ -34,7 +34,7 @@ public class BrowserManagerEnumTest {
         Assert.assertTrue( of.getBrowserManager( "1" ) instanceof VoidDriverManager );
         Assert.assertTrue( of.getDriver() instanceof RemoteWebDriver );
         
-        ((RemoteWebDriver) of.getDriver()).get("http://tarunlalwani.com");
+        ((RemoteWebDriver) of.getDriver()).get("http://www.google.es");
         
     }
     
